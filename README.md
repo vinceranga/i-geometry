@@ -25,6 +25,8 @@ The node number is the location of the node along a horizontal axis; that is, th
 
 ![alt text](https://github.com/vinceranga/i-geometry/blob/master/pics/triangles.png "triangles")
 
+Huge thanks to Ge Wang and Orchi Das for their incredible instruction, and the whole 220b class for such high quality feedback.
+
 Enjoy the experience!
 
 -Vince
