@@ -2,17 +2,47 @@
 <html>
 <body>
 
-<h1>Homework 4</h1>
+<h1>i <| geometry</h1>
 
-<p><i>the ringing of chaotic pitches and metallic dishes</I></p>
+<p><i>Vince Ranganathan -- Music 220b final project, winter 2018</I></p>
 
-<p>Experimented with the input-effects-output starter file and the chaotic (polynomial recurrence) number generator to create shifting pitches that behaved somewhat randomly but with a noticeable up-down pattern, and with measured left-right shifting. The intent was to make 'ringing' type sounds with a metallic object and have the program supplement these by responding with volume changes and its own ringing patterns.</p>
+<p>This piece is based on a partially randomized drum machine, that operates by generating a random path down a network of nodes, and altering parameters of the music while traversing this path. The components of the piece are described in more detail below:</p>
 
-<p>The piece is broken up into three 15-second snippets, each having its own experiment-based numerical values and seed values for the chaotic number generator. Here's a link to my ChucK code for this project:</p>
-<a href="https://ccrma.stanford.edu/~akranga/220a/hw4/hw4-vinceranganathan.ck“>hw4-vinceranganathan.ck</a>
+<p><b>Networks:</b> Each network has nine layers, where the first and last layer have exactly one node, and the rest of the layers have at least one. Moving from layer k to k+1, the number of nodes can either increase of decrease by one. An example of a 'diamond' shaped network is:</p>
 
-<p>And here's the output (play button should work, but in case it doesn't:</p>
-<a href="https://ccrma.stanford.edu/~akranga/220a/hw4/trcpmd.wav“>the ringing of chaotic pitches and metallic dishes</a>
+<img src="https://ccrma.stanford.edu/~akranga/220B/diamond.png" style="width:507px;height:750px;">
+
+<p>A path is generated using the following rules: (1) the next node is either the one to the bottom-left or bottom-right of the current node. If only one of these is available, that is the next node. (2) If in the center (node = 0), pick left or right both with probability 1/2; if left of center (node < 0), pick left with probabilty 2/3 and right with 1/3; if right of center (node > 0), pick left with probability 1/3 and right with 2/3. This allows the path to explore the edges of the shape more frequently.</p>
+
+<p>The node number is the location of the node along a horizontal axis; that is, the central nodes have number 0, and moving left decreases the number by 1 while moving right increases it by 1. In the diamond pattern, the node number can vary from -4 to 4, while in the zipper pattern, it is restricted to -1 to 1.</p>
+
+
+<p><b>Sound:</b> There are seven instruments in the piece: bass guitar, a set of cymbals/hats, a marimba, a piano, a 'pluck' synthesizer, a drum set, and a flute. The pitched instruments play either the A minor or E minor pentatonic scale, with the central node representing the A or E, and lower or higher nodes representing lower or higher notes in the scale. The percussive instruments are symmetrical, i.e. nodes -k and k play the same sounds, but are panned according to their position in the graph.</p>
+
+<p><b>Piece structure:</b> The piece has three sections. The first introduces the concepts, bringing in instruments gradually and experimenting with the different types of sounds created by different network shapes. The second (after the first fade) switches the order of the instruments (which instrument corresponds to which network) and moves into the swing rhythm. The third experiments with tempo and rapidly alternates between even and swing rhythms before fading out.</p>
+
+<p><b>Visuals:</b> Programmed using Processing. The current node that is selected in the path is lit up as the corresponding sound is played. Previous nodes in the path are dimmed as necessary. The size of the nodes is proportional to the volume of the instrument. A square, light-blue node indicates a percussive instrument, while a purple, circle or triangle node represents a pitched instrument. Circles represent even rhythm (1 2, 1 2) while triangles represent swing rhythm (1 _ 3, 1 _ 3).</p>
+
+<img src="https://ccrma.stanford.edu/~akranga/220B/circles.png" style="width:1200px;height:750px;">
+
+<img src="https://ccrma.stanford.edu/~akranga/220B/triangles.png" style="width:1200px;height:750px;">
+
+
+<p>Here's a link to my ChucK code for this project:</p>
+<a href="https://ccrma.stanford.edu/~akranga/220B/i_<|_geometry.ck">ChucK code</a>
+
+<p>And here's a link to the Processing code that accompanies it:</p>
+<a href="https://ccrma.stanford.edu/~akranga/220B/final_graphics.pde">Processing code</a>
+
+<p>The compiled Processing application is available here:</p>
+<a href="https://ccrma.stanford.edu/~akranga/220B/final_graphics.app">Processing application</a>
+
+<p>The functionality is documented in the readme, located here:</p>
+<a href="https://ccrma.stanford.edu/~akranga/220B/readme.txt">README</a>
+
+<p>Enjoy the experience!</p>
+
+<p>-Vince</p>
 
 </body>
 </html>
