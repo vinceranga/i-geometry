@@ -11,7 +11,7 @@ This piece is based on a partially randomized drum machine, that operates by gen
 
 **Networks:** Each network has nine layers, where the first and last layer have exactly one node, and the rest of the layers have at least one. Moving from layer k to k+1, the number of nodes can either increase of decrease by one. An example of a 'diamond' shaped network is:
 
-![alt text](https://github.com/vinceranga/i-geometry/blob/master/pics/diamond.png "diamond")
+![alt text](https://github.com/vinceranga/i-geometry/blob/master/pics/diamond.png "diamond"){ width=50% }
  
 A path is generated using the following rules: (1) the next node is either the one to the bottom-left or bottom-right of the current node. If only one of these is available, that is the next node. (2) If in the center (node = 0), pick left or right both with probability 1/2; if left of center (node < 0), pick left with probabilty 2/3 and right with 1/3; if right of center (node > 0), pick left with probability 1/3 and right with 2/3. This allows the path to explore the edges of the shape more frequently.
 
